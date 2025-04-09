@@ -6,7 +6,7 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:48:54 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/07 18:48:57 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/09 21:50:44 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_strlen(const char *c)
 	int	len;
 
 	len = 0;
-	while (c)
+	while (c[len] != '\0')
 	{
 		len++;
 	}
