@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 18:49:05 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/07 18:49:07 by rucosta          ###   ########.fr       */
+/*   Created: 2025/04/07 17:08:07 by rucosta           #+#    #+#             */
+/*   Updated: 2025/04/07 17:22:30 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
 
-int	strncmp(const char *s1, const char *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned int	i;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
 
-	i = 0;
-	while (i < n && s1[i] != '\0' && s2[i] != '\0')
+	ptr1 = (unsigned char *)s1;
+	ptr2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while (n > 0)
 	{
-		if (s1[i] != s2[i])
+		if (*ptr1 != *ptr2)
 		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+			return (*ptr1 - *ptr2);
 		}
-		i++;
-	}
-	if (i < n)
-	{
-		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		ptr1++;
+		ptr2++;
+		n--;
 	}
 	return (0);
 }

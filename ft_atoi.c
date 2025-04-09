@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 18:49:05 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/07 18:49:07 by rucosta          ###   ########.fr       */
+/*   Created: 2025/04/07 18:37:36 by rucosta           #+#    #+#             */
+/*   Updated: 2025/04/07 18:41:37 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include <stdlib.h>
 
-int	strncmp(const char *s1, const char *s2, size_t n)
+int	atoi(const char *nptr)
 {
-	unsigned int	i;
+	int	i;
+	int	sign;
+	int	result;
 
 	i = 0;
-	while (i < n && s1[i] != '\0' && s2[i] != '\0')
+	sign = 1;
+	result = 0;
+	while (nptr[i] == ' ')
+		i++;
+	while (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (s1[i] != s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
+		if (nptr[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	if (i < n)
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		result *= 10;
+		result += nptr[i] - '0';
+		i++;
 	}
-	return (0);
+	result *= sign;
+	return (result);
 }

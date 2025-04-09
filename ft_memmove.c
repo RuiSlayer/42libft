@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruislayer <ruislayer@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 23:21:44 by ruislayer         #+#    #+#             */
-/*   Updated: 2025/02/26 21:40:01 by ruislayer        ###   ########.fr       */
+/*   Created: 2025/04/07 18:48:02 by rucosta           #+#    #+#             */
+/*   Updated: 2025/04/07 19:02:16 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,28 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*ps;
-	unsigned char	*pd;
-	unsigned char	*ptemp;
-	unsigned int	i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-	i = 0;
-	ps = (unsigned char *)src;
-	pd = (unsigned char *)dest;
-	while (i < n)
+	d = dest;
+	s = src;
+	if (d == s)
+		return (dest);
+	if (d < s || d >= s + n)
 	{
-		ptemp = ps[i];
-		i++;
+		while (n--)
+		{
+			*d++ = *s++;
+		}
 	}
-	i = 0;
-	while (i < n)
+	else
 	{
-		pd[i] = ptemp[i];
-		i++;
+		d += n;
+		s += n;
+		while (n--)
+		{
+			*(--d) = *(--s);
+		}
 	}
 	return (dest);
-}
-
-int main()
-{
-	char csrc[100] = "Geeksfor"; 
-	ft_memmove(csrc+5, csrc, strlen(csrc)+1); 
-	printf("%s\n", csrc); 
-	return 0;
 }

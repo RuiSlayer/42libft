@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 18:49:05 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/07 18:49:07 by rucosta          ###   ########.fr       */
+/*   Created: 2025/04/09 18:08:41 by rucosta           #+#    #+#             */
+/*   Updated: 2025/04/09 18:22:47 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
 
-int	strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strdup(const char *s)
 {
-	unsigned int	i;
+	unsigned char	*ptr;
+	int				len;
+	int				i;
 
 	i = 0;
-	while (i < n && s1[i] != '\0' && s2[i] != '\0')
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	ptr = malloc(len + 1);
+	if (ptr == NULL)
+		return (NULL);
+	while (s[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
+		ptr[i] = s[i];
 		i++;
 	}
-	if (i < n)
-	{
-		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-	}
-	return (0);
+	ptr[i] = '\0';
+	return (ptr);
 }
