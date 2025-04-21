@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruislayer <ruislayer@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 20:54:07 by ruislayer         #+#    #+#             */
-/*   Updated: 2025/04/17 21:42:20 by ruislayer        ###   ########.fr       */
+/*   Created: 2025/04/21 17:27:29 by rucosta           #+#    #+#             */
+/*   Updated: 2025/04/21 19:11:48 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	count_numbers(int n)
+static int	count_numbers(int n)
 {
 	int		i;
 	int		count;
@@ -33,7 +33,7 @@ int	count_numbers(int n)
 	return (count);
 }
 
-char	*ft_itoa_zero(void)
+static char	*ft_itoa_zero(void)
 {
 	char	*ptr;
 
@@ -45,7 +45,7 @@ char	*ft_itoa_zero(void)
 	return (ptr);
 }
 
-char	*ft_itoa_int_min(void)
+static char	*ft_itoa_int_min(void)
 {
 	char	*ptr;
 
@@ -67,7 +67,7 @@ char	*ft_itoa_int_min(void)
 	return (ptr);
 }
 
-char	*ft_fill_itoa(char *ptr, int n, int size_int)
+static char	*ft_fill_itoa(char *ptr, int n, int size_int)
 {
 	int	i;
 

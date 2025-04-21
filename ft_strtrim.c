@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruislayer <ruislayer@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 18:49:17 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/15 18:22:42 by ruislayer        ###   ########.fr       */
+/*   Created: 2025/04/21 17:24:01 by rucosta           #+#    #+#             */
+/*   Updated: 2025/04/21 19:21:08 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-
-int	ft_strlen(const char *c)
-{
-	int	len;
-
-	len = 0;
-	while (c[len] != '\0')
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 int	is_in_set(char c, const char *set)
 {

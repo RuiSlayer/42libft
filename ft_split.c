@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruislayer <ruislayer@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 18:49:17 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/15 19:05:41 by ruislayer        ###   ########.fr       */
+/*   Created: 2025/04/21 17:26:57 by rucosta           #+#    #+#             */
+/*   Updated: 2025/04/21 19:12:53 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
 	int	count;
 	int	in_word;
@@ -35,7 +35,7 @@ int	count_words(const char *s, char c)
 	return (count);
 }
 
-int	word_len(const char *s, char c)
+static int	word_len(const char *s, char c)
 {
 	int	len;
 
@@ -45,7 +45,7 @@ int	word_len(const char *s, char c)
 	return (len);
 }
 
-char	*malloc_word(const char *s, int len)
+static char	*malloc_word(const char *s, int len)
 {
 	char	*word;
 	int		i;

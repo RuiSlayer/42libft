@@ -6,23 +6,11 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:48:36 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/07 18:48:38 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/21 20:30:30 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strlen(const char *c)
-{
-	int	len;
-
-	len = 0;
-	while (c)
-	{
-		len++;
-	}
-	return (len);
-}
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
