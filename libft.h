@@ -6,7 +6,7 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:21:47 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/22 01:16:56 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/22 17:55:35 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdio.h>
-#include <limits.h>
+# include <limits.h>
 
 int		ft_strlen(const char *c);
 int		ft_atoi(const char *nptr);
