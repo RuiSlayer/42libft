@@ -6,17 +6,17 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:46:55 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/07 18:47:00 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/21 20:57:21 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
-	if (c >= 'a' || c <= 'z')
+	if (c >= 'a' && c <= 'z')
 	{
 		return (1);
 	}
-	else if (c >= 'A' || c <= 'Z')
+	else if (c >= 'A' && c <= 'Z')
 	{
 		return (1);
 	}

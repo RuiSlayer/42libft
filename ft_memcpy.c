@@ -17,7 +17,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ps;
 	unsigned char	*pd;
+	int				i;
 
+	i = 0;
 	ps = (unsigned char *)src;
 	pd = (unsigned char *)dest;
 	while (n != 0)
@@ -26,9 +28,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		pd++;
 		ps++;
 		n--;
+		i++;
 	}
-	pd = '\0';
-	return (dest);
+	pd[i - 1] = '\0';
+	return (pd);
 }
 
 /* int main()

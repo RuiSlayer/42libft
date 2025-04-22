@@ -6,7 +6,7 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:16:18 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/21 19:26:40 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/22 00:58:47 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	unsigned int		i;
 
 	i = 0;
-	if (!s)
+	if (!s || !f)
 		return ;
 	while (s[i] != '\0')
 	{
-		f (i, s);
+		f (i, &s[i]);
 		i++;
 	}
 }

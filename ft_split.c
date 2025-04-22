@@ -6,7 +6,7 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:26:57 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/21 19:12:53 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/21 20:55:54 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,15 @@ static char	*malloc_word(const char *s, int len)
 	return (word);
 }
 
+static int	word_alloc(int i, char const *s, char **ptr, char c)
+{
+	int	wlen;
+
+	wlen = word_len(s, c);
+	ptr[i] = malloc_word(s, wlen);
+	return (wlen);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
@@ -79,10 +88,7 @@ char	**ft_split(char const *s, char c)
 	{
 		if (*s != c)
 		{
-			wlen = word_len(s, c);
-			ptr[i] = malloc_word(s, wlen);
-			if (!ptr[i])
-				return (NULL);
+			wlen = word_alloc(i, s, ptr, c);
 			s += wlen;
 			i++;
 		}
