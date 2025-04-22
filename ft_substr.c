@@ -6,7 +6,7 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:54:33 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/22 17:54:12 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/22 19:32:01 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*ptr;
 	size_t	i;
 
-	if (s == NULL || (int)start >= ft_strlen(s))
+	if (!s || (int)start >= ft_strlen(s))
 		return (NULL);
 	i = 0;
 	ptr = malloc(len + 1);
-	if (ptr == NULL)
+	if (!ptr)
 		return (NULL);
 	while (i < len && s[start + i] != '\0')
 	{

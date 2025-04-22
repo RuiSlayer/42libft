@@ -6,13 +6,13 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:16:18 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/22 00:58:47 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/22 19:03:53 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int		i;
+	unsigned int	i;
 
 	i = 0;
 	if (!s || !f)
