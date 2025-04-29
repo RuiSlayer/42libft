@@ -6,7 +6,7 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:48:02 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/07 19:02:16 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/29 15:16:01 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	d = dest;
 	s = src;
-	if (d == s)
-		return (dest);
 	if (d < s || d >= s + n)
 	{
 		while (n--)

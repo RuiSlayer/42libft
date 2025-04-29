@@ -6,7 +6,7 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:27:29 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/21 19:11:48 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/29 14:08:50 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static int	count_numbers(int n)
+static int	count_numbers(long n)
 {
-	int		i;
-	int		count;
+	long		i;
+	int			count;
 
 	count = 0;
 	i = n;
@@ -45,29 +45,7 @@ static char	*ft_itoa_zero(void)
 	return (ptr);
 }
 
-static char	*ft_itoa_int_min(void)
-{
-	char	*ptr;
-
-	ptr = malloc(12);
-	if (!ptr)
-		return (NULL);
-	ptr[0] = '-';
-	ptr[1] = '2';
-	ptr[2] = '1';
-	ptr[3] = '4';
-	ptr[4] = '7';
-	ptr[5] = '4';
-	ptr[6] = '8';
-	ptr[7] = '3';
-	ptr[8] = '6';
-	ptr[9] = '4';
-	ptr[10] = '8';
-	ptr[11] = '\0';
-	return (ptr);
-}
-
-static char	*ft_fill_itoa(char *ptr, int n, int size_int)
+static char	*ft_fill_itoa(char *ptr, long n, int size_int)
 {
 	int	i;
 
@@ -80,19 +58,19 @@ static char	*ft_fill_itoa(char *ptr, int n, int size_int)
 	return (ptr);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
 	char	*ptr;
 	int		size_int;
+	long	temp;
 
-	if (n == -2147483648)
-		return (ft_itoa_int_min());
-	if (n == 0)
+	temp = n;
+	if (temp == 0)
 		return (ft_itoa_zero());
-	if (n < 0)
+	if (temp < 0)
 	{
-		n *= -1;
-		size_int = count_numbers(n) + 2;
+		temp *= -1;
+		size_int = count_numbers(temp) + 2;
 		ptr = malloc(size_int);
 		if (!ptr)
 			return (NULL);
@@ -100,11 +78,11 @@ char	*ft_itoa(int n)
 	}
 	else
 	{
-		size_int = count_numbers(n) + 1;
+		size_int = count_numbers(temp) + 1;
 		ptr = malloc(size_int);
 		if (!ptr)
 			return (NULL);
 	}
 	ptr[size_int - 1] = '\0';
-	return (ft_fill_itoa(ptr, n, size_int));
+	return (ft_fill_itoa(ptr, temp, size_int));
 }

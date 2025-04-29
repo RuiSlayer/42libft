@@ -6,9 +6,11 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:47:08 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/21 20:51:34 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/29 15:05:53 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

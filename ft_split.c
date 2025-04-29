@@ -6,13 +6,22 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:26:57 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/21 20:55:54 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/29 21:38:21 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+static char	**free_all(char	**s, size_t	n)
+{
+	while (n--)
+		free(s[n]);
+	free(s[n]);
+	free(s);
+	return (NULL);
+}
 
 static int	count_words(const char *s, char c)
 {
@@ -89,6 +98,8 @@ char	**ft_split(char const *s, char c)
 		if (*s != c)
 		{
 			wlen = word_alloc(i, s, ptr, c);
+			if (!ptr[i])
+				return (free_all(ptr, (count_words(s, c) + 1)));
 			s += wlen;
 			i++;
 		}
@@ -98,3 +109,39 @@ char	**ft_split(char const *s, char c)
 	ptr[i] = NULL;
 	return (ptr);
 }
+
+/* void print_ft_split(char **split)
+{
+	int i = 0;
+	while (split[i])
+	{
+		printf("ft_split[%d]: \"%s\"\n", i, split[i]);
+		i++;
+	}
+} */
+
+/* // Utility to print strtok result
+void print_strtok(const char *s, char delimiter)
+{
+	char	*dup = strdup(s);
+	char	*token = strtok(dup, (char[]){delimiter, '\0'});
+	int		i = 0;
+
+	while (token)
+	{
+		printf("strtok[%d]:   \"%s\"\n", i++, token);
+		token = strtok(NULL, (char[]){delimiter, '\0'});
+	}
+	free(dup);
+} */
+
+/* 
+int main()
+{
+	char	*str = "this, is , a , tetst,";
+	char	**res = ft_split(str, ',');
+	print_ft_split(res);
+	for (int i = 0; res[i]; i++)
+		free(res[i]);
+	free(res);
+} */

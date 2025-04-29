@@ -6,7 +6,7 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:16:18 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/22 19:03:53 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/29 15:25:08 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		return ;
 	while (s[i] != '\0')
 	{
-		f (i, &s[i]);
+		f(i, &s[i]);
 		i++;
 	}
 }

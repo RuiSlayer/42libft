@@ -31,7 +31,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		i++;
 	}
 	pd[i - 1] = '\0';
-	return (pd);
+	return (dest);
 }
 
 /* int main()
