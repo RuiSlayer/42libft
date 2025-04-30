@@ -3,25 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ruislayer <ruislayer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:26:57 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/29 21:38:21 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/30 17:56:29 by ruislayer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-static char	**free_all(char	**s, size_t	n)
-{
-	while (n--)
-		free(s[n]);
-	free(s[n]);
-	free(s);
-	return (NULL);
-}
 
 static int	count_words(const char *s, char c)
 {
@@ -78,6 +69,14 @@ static int	word_alloc(int i, char const *s, char **ptr, char c)
 
 	wlen = word_len(s, c);
 	ptr[i] = malloc_word(s, wlen);
+	if (!ptr)
+	{
+		while (i--)
+			free(ptr[i]);
+		free(ptr[i]);
+		free(ptr);
+		return (-1);
+	}
 	return (wlen);
 }
 
@@ -98,8 +97,8 @@ char	**ft_split(char const *s, char c)
 		if (*s != c)
 		{
 			wlen = word_alloc(i, s, ptr, c);
-			if (!ptr[i])
-				return (free_all(ptr, (count_words(s, c) + 1)));
+			if (wlen == -1)
+				return (NULL);
 			s += wlen;
 			i++;
 		}
