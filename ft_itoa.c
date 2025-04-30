@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ruislayer <ruislayer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:27:29 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/29 14:08:50 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/04/30 19:44:36 by ruislayer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,75 +14,74 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static int	count_numbers(long n)
+int	get_len(int n)
 {
-	long		i;
-	int			count;
+	size_t	len;
 
-	count = 0;
-	i = n;
-	if (i == 0)
+	len = 0;
+	if (n == 0)
 		return (1);
-	if (i < 0)
-		i *= -1;
-	while (i > 0)
+	if (n < 0)
 	{
-		i /= 10;
-		count++;
+		n = -n;
+		len++;
 	}
-	return (count);
+	while (n != 0)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }
 
-static char	*ft_itoa_zero(void)
+char	*ft_itoa(int n)
 {
-	char	*ptr;
+	char	*res;
+	size_t	len;
+	long	nb;
 
-	ptr = malloc(2);
-	if (!ptr)
+	nb = n;
+	len = get_len(n);
+	if (nb < 0)
+		nb = -nb;
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!res)
 		return (NULL);
-	ptr[0] = '0';
-	ptr[1] = '\0';
-	return (ptr);
+	res[len] = '\0';
+	while (len > 0)
+	{
+		len--;
+		res[len] = nb % 10 + '0';
+		nb = nb / 10;
+	}
+	if (n < 0)
+		res[0] = '-';
+	return (res);
 }
-
-static char	*ft_fill_itoa(char *ptr, long n, int size_int)
+/* void	print_test(long n)
 {
-	int	i;
+	char	*result;
 
-	i = size_int - 2;
-	while (n > 0)
+	result = ft_itoa(n);
+	if (result == NULL)
 	{
-		ptr[i--] = (n % 10) + '0';
-		n /= 10;
+		printf("ft_itoa(%ld): NULL (allocation failed)\n", n);
+		return ;
 	}
-	return (ptr);
+	printf("ft_itoa(%ld) = \"%s\"\n", n, result);
+	free(result);
 }
 
-char	*ft_itoa(long n)
+int	main(void)
 {
-	char	*ptr;
-	int		size_int;
-	long	temp;
-
-	temp = n;
-	if (temp == 0)
-		return (ft_itoa_zero());
-	if (temp < 0)
-	{
-		temp *= -1;
-		size_int = count_numbers(temp) + 2;
-		ptr = malloc(size_int);
-		if (!ptr)
-			return (NULL);
-		ptr[0] = '-';
-	}
-	else
-	{
-		size_int = count_numbers(temp) + 1;
-		ptr = malloc(size_int);
-		if (!ptr)
-			return (NULL);
-	}
-	ptr[size_int - 1] = '\0';
-	return (ft_fill_itoa(ptr, temp, size_int));
-}
+	print_test(0);
+	print_test(42);
+	print_test(-42);
+	print_test(1234567890);
+	print_test(-1234567890);
+	print_test(2147483647);
+	print_test(-2147483648);
+	print_test(9223372036854775807);
+	print_test(-9223372036854775807 - 1);
+	return (0);
+} */
