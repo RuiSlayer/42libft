@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 23:04:44 by rucosta         #+#    #+#             */
-/*   Updated: 2025/04/07 18:46:03 by rucosta          ###   ########.fr       */
+/*   Created: 2026/04/15 04:30:10 by rucosta           #+#    #+#             */
+/*   Updated: 2026/04/15 04:30:22 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+long	ft_atol(const char *s)
 {
-	unsigned char	*ps;
-	unsigned char	*pd;
-	int				i;
+	size_t	i;
+	long	sign;
+	long	num;
 
 	i = 0;
-	ps = (unsigned char *)src;
-	pd = (unsigned char *)dest;
-	while (n != 0)
+	num = 0;
+	sign = 1;
+	while (ft_isspace(s[i]))
+		i++;
+	if (s[i] == '+' || s[i] == '-')
 	{
-		*pd = *ps;
-		pd++;
-		ps++;
-		n--;
+		if (s[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	pd[i - 1] = '\0';
-	return (dest);
+	while (ft_isdigit(s[i]))
+	{
+		num = num * 10 + (s[i] - '0');
+		if (num * sign < INT_MIN || num * sign > INT_MAX)
+			return (LONG_MAX);
+		i++;
+	}
+	return (num * sign);
 }

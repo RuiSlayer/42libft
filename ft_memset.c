@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:48:14 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/29 15:01:20 by rucosta          ###   ########.fr       */
+/*   Updated: 2026/02/26 18:28:08 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <assert.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -29,11 +26,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
-/* void print_memory(const unsigned char *s, size_t n)
-{
-    for (size_t i = 0; i < n; i++)
-        printf("%02x ", s[i]);
-    printf("\n");
-}
- */

@@ -6,11 +6,11 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:36 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/22 01:07:44 by rucosta          ###   ########.fr       */
+/*   Updated: 2026/04/15 04:43:29 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {

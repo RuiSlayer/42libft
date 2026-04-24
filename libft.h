@@ -6,7 +6,7 @@
 /*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:21:47 by rucosta           #+#    #+#             */
-/*   Updated: 2025/04/29 21:29:05 by rucosta          ###   ########.fr       */
+/*   Updated: 2026/04/15 04:34:33 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,7 @@ int		ft_toupper(int c);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_isspace(int c);
+long	ft_atol(const char *s);
 #endif
